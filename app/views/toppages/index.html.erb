@@ -9,6 +9,9 @@
       <% end %>
     </aside>
     <div class="col-xs-8">
+      <%= link_to 'お気に入り（未実装）', users_path %>
+    </div>
+    <div class="col-xs-8">
       <%= render 'microposts/microposts', microposts: @microposts %>
     </div>
   </div>
