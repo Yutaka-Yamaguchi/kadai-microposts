@@ -16,6 +16,27 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :toppages, only: [:index, :show, :new, :create] do
+    member do
+      get :favoritings
+      get :favoriters
+    end
+    collection do
+      get :search
+    end
+  end
+
+  resources :favorites, only: [:index, :show, :new, :create] do
+    member do
+      get :favusers
+      get :favposts
+    end
+    collection do
+      get :search
+    end
+  end
+
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy]
 end

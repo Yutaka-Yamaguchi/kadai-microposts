@@ -1,6 +1,10 @@
-class ApplicationRecord < ActiveRecord::Base
-  self.abstract_class = true
-
+class Favorite < ApplicationRecord
+  belongs_to :user
+  belongs_to :micropost
+  
+  validates :user_id, presence: true
+  validates :micropost_id, presence: true
+  
   def fav(micropost)
     self.favorites.find_or_create_by(micropost_id: micropost.id)
   end
